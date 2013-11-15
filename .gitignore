@@ -1,3 +1,6 @@
+# not the huge csv
+csv/*.csv
+
 *.py[cod]
 
 # C extensions

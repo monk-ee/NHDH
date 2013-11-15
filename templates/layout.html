@@ -1,0 +1,22 @@
+<!doctype html>
+<title>NHDH</title>
+<head>
+    <script type="text/javascript"
+        src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="/static/js/sijax/sijax.js"></script>
+    <script type="text/javascript">
+        {{ g.sijax.get_js()|safe }}
+    </script>
+</head>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='tyle.css') }}">
+<div class=page>
+  <h1>NiceHeadDickHead</h1>
+  <div class=metanav>
+   <a href="javascript://" onclick="Sijax.request('vpc_id',['vpc-xxxxxxx']);">metanav</a>
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% block body %}{% endblock %}
+</div>
