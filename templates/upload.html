@@ -1,10 +1,8 @@
 {% extends "layout.html" %}
 {% block body %}
-  <ul class=entries>
-  {% for key in mdf.values %}
-       <li><a href="javascript://" onclick="Sijax.request('t3',['{{ mdf.index[loop.index0] }}']);">{{ mdf.index[loop.index0] }}</a> : ${{ mdf.values[loop.index0][0]|safe }} </li>
-  {% else %}
-    <li><em>Unbelievable.  No T3's here so far</em>
-  {% endfor %}
-  </ul>
-{% endblock %}
+   <h1>Upload Latest Billing Report</h1>
+    <form action="" method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+ {% endblock %}

@@ -1,5 +1,5 @@
 <!doctype html>
-<title>NHDH</title>
+<title>AWS Billing Reducer</title>
 <head>
     <script type="text/javascript"
         src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
@@ -8,12 +8,15 @@
     <script type="text/javascript">
         {{ g.sijax.get_js()|safe }}
     </script>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='tyle.css') }}">
 <div class=page>
-  <h1>NiceHeadDickHead</h1>
+  <h1>AWS Billing Reducer</h1>
   <div class=metanav>
-   <a href="javascript://" onclick="Sijax.request('vpc_id',['vpc-xxxxxxx']);">metanav</a>
+   <a href="/upload" >Upload a Report</a>
+      |
+      <a href="/" >Home</a>
   </div>
   {% for message in get_flashed_messages() %}
     <div class=flash>{{ message }}</div>
