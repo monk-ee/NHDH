@@ -6,7 +6,7 @@ import zipfile
 from StringIO import StringIO
 import dateutil
 from flask import Flask, request, session, g, redirect, url_for, abort, \
-     render_template, flash, send_from_directory
+     render_template, flash, send_from_directory, Response, send_file
 from werkzeug import secure_filename
 import flask_sijax
 
@@ -164,6 +164,16 @@ def unzip_file(filename):
     return redirect(url_for('list_reports',
                                     filename=filename))
 
+@app.route('/csv/<filename>')
+def serve_csv(filename):
+    mdf = month_by_owner(filename)
+    buffer = StringIO()
+    mdf.to_csv(buffer,encoding='utf-8')
+    buffer.seek(0)
+    return send_file(buffer,
+                     attachment_filename="testing.txt",
+                     mimetype='text/csv')
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
@@ -188,7 +198,9 @@ def owner(filename):
 
     # Regular (non-Sijax request) - render the page template
     mdf = month_by_owner(filename)
-    return render_template('breakdown.html', mdf=mdf)
+    return render_template('breakdown.html',
+                           mdf=mdf,
+                           filename=filename)
 
 @flask_sijax.route(app, '/itemreport/<filename>')
 def item(filename):
@@ -209,7 +221,9 @@ def item(filename):
 
     # Regular (non-Sijax request) - render the page template
     mdf = month_by_owner_item(filename)
-    return render_template('breakdown.html', mdf=mdf)
+    return render_template('breakdown.html',
+                           mdf=mdf,
+                           filename=filename)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
