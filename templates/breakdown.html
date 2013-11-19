@@ -4,7 +4,7 @@
 
   {% for key in mdf.values %}
       <tr>
-       <td><a href="javascript://" onclick="Sijax.request('t3',['{{ mdf.index[loop.index0] }}']);">{{ mdf.index[loop.index0] }}</a> </td><td> ${{ mdf.values[loop.index0][0].round(2)|safe }} </td>
+       <td><a href="javascript://" onclick="Sijax.request('t3',['{{ mdf.index[loop.index0] }}']);">{{ mdf.index[loop.index0] }}</a> </td><td width="80px"> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][0]) }} </td>
       </tr>
   {% else %}
       <tr>

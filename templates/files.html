@@ -2,7 +2,7 @@
 {% block body %}
   <ul class=entries>
   {% for file in csv %}
-       <li><a href="/report/{{ file }}">{{ file }}</a></li>
+       <li>{{ file }} | <a href="/itemreport/{{ file }}">Item</a> | <a href="/report/{{ file }}">Owner</a></li>
   {% else %}
     <li><em>Unbelievable.  No files here so far</em>
   {% endfor %}

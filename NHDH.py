@@ -1,4 +1,5 @@
 import os
+import locale
 import numpy as np
 import pandas as pd
 import zipfile
@@ -11,6 +12,16 @@ import flask_sijax
 
 UPLOAD_FOLDER = 'c:/repos/NHDH/csv'
 ALLOWED_EXTENSIONS = set(['zip'])
+
+locale.setlocale(locale.LC_ALL, '')
+
+# @todo csv output file
+# @todo df.groupby(['SubscribtionId', 'BlendedCost'])
+# @todo sum only cost columns
+# @todo select key/header to group on
+# @todo do locale for money correctly
+
+
 
 # InvoiceID	PayerAccountId	LinkedAccountId	RecordType	RecordId	ProductName	RateId	SubscriptionId	PricingPlanId	UsageType	Operation	AvailabilityZone	ReservedInstance	ItemDescription	UsageStartDate	UsageEndDate	UsageQuantity	BlendedRate	BlendedCost	UnBlendedRate	UnBlendedCost	ResourceId	user:Name	user:OWNER-T3	user:SERVICE-ENVIRONMENT	user:SERVICE-NAME	user:SUPPORT-T3
 # plotly key dvswdkf6sp
@@ -60,7 +71,27 @@ def month_by_owner(filename):
     df['user:OWNER-T3'] = df['user:OWNER-T3'].fillna('Untagged')
     df['user:OWNER-T3'] = df['user:OWNER-T3'].astype(str)
     #gb = df.groupby('user:OWNER-T3').sum().sort('BlendedCost')
-    gb = df.groupby('user:OWNER-T3').sum()
+    gb = df.groupby(['user:OWNER-T3']).sum()
+    #gbowner = df.mask(lambda x: x['user:OWNER-T3'] == '532500')
+    #df_f = df[df['user:OWNER-T3'] == '532500']
+    #gb = df.groupby([lambda x: x.day]).sum()
+    #gbowner = df.mask(lambda x: x['user:OWNER-T3'] == '532500')
+    print gb
+    jb = gb[['BlendedCost']]
+    pd.options.display.float_format = '{:20,.2f}'.format
+    #jb = dataframe_to_json(jb)
+    print jb
+    return jb
+
+def month_by_owner_item(filename):
+    #file  ='c:/repos/NHDH/csv/371416632205-aws-billing-detailed-line-items-with-resources-and-tags-2013-10.csv'
+    file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    df = pd.read_csv(file, index_col='UsageStartDate', dtype={'user:OWNER-T3' : str}, parse_dates=True, header=0)
+    df = df[np.isfinite(df['SubscriptionId'])]
+    df['user:OWNER-T3'] = df['user:OWNER-T3'].fillna('Untagged')
+    df['user:OWNER-T3'] = df['user:OWNER-T3'].astype(str)
+    #gb = df.groupby('user:OWNER-T3').sum().sort('BlendedCost')
+    gb = df.groupby(['ItemDescription','user:OWNER-T3']).sum()
     #gbowner = df.mask(lambda x: x['user:OWNER-T3'] == '532500')
     #df_f = df[df['user:OWNER-T3'] == '532500']
     #gb = df.groupby([lambda x: x.day]).sum()
@@ -139,7 +170,7 @@ def favicon():
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @flask_sijax.route(app, '/report/<filename>')
-def hello(filename):
+def owner(filename):
     # Every Sijax handler function (like this one) receives at least
     # one parameter automatically, much like Python passes `self`
     # to object methods.
@@ -159,6 +190,26 @@ def hello(filename):
     mdf = month_by_owner(filename)
     return render_template('breakdown.html', mdf=mdf)
 
+@flask_sijax.route(app, '/itemreport/<filename>')
+def item(filename):
+    # Every Sijax handler function (like this one) receives at least
+    # one parameter automatically, much like Python passes `self`
+    # to object methods.
+    # The `obj_response` parameter is the function's way of talking
+    # back to the browser
+    def t3(obj_response, t3):
+        days = day_by_owner_only(t3, filename)
+        obj_response.alert('Days are %s' % (days))
+        #obj_response.html_append('#'+t3, '<li>%s</li>' % (days))
+
+    if g.sijax.is_sijax_request:
+        # Sijax request detected - let Sijax handle it
+        g.sijax.register_callback('t3', t3)
+        return g.sijax.process_request()
+
+    # Regular (non-Sijax request) - render the page template
+    mdf = month_by_owner_item(filename)
+    return render_template('breakdown.html', mdf=mdf)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)
