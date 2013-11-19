@@ -34,7 +34,7 @@
       <file leaf-file-name="NHDH.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NHDH.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="0" selection-start="6561" selection-end="6830" vertical-scroll-proportion="0.20436817" vertical-offset="2708" max-vertical-offset="3995">
+            <state line="233" column="32" selection-start="9076" selection-end="9076" vertical-scroll-proportion="0.68174726" vertical-offset="3524" max-vertical-offset="4165">
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -55,6 +55,15 @@
         <entry file="file://$PROJECT_DIR$/templates/breakdown.html">
           <provider selected="true" editor-type-id="text-editor">
             <state line="15" column="14" selection-start="493" selection-end="493" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="391">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="itembreakdown.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/itembreakdown.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="18" selection-start="497" selection-end="497" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="391">
               <folding />
             </state>
           </provider>
@@ -110,6 +119,7 @@
         <option value="$PROJECT_DIR$/templates/files.html" />
         <option value="$PROJECT_DIR$/static/tyle.css" />
         <option value="$PROJECT_DIR$/templates/breakdown.html" />
+        <option value="$PROJECT_DIR$/templates/itembreakdown.html" />
         <option value="$PROJECT_DIR$/NHDH.py" />
       </list>
     </option>
@@ -592,6 +602,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/itembreakdown.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="18" selection-start="497" selection-end="497" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="391">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/breakdown.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="14" selection-start="493" selection-end="493" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="391">
@@ -601,7 +618,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NHDH.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="0" selection-start="6561" selection-end="6830" vertical-scroll-proportion="0.20436817" vertical-offset="2708" max-vertical-offset="3995">
+        <state line="233" column="32" selection-start="9076" selection-end="9076" vertical-scroll-proportion="0.68174726" vertical-offset="3524" max-vertical-offset="4165">
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

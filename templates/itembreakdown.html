@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+  <table class=entries>
+
+  {% for key in mdf.values %}
+      <tr>
+       <td><a href="javascript://" onclick="Sijax.request('t3',['{{ mdf.index[loop.index0] }}']);">{{ mdf.index[loop.index0] }}</a> </td><td width="80px"> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][0]) }} </td>
+      </tr>
+  {% else %}
+      <tr>
+    <td><em>Unbelievable.  No T3's here so far</em></td>
+      </tr>
+  {% endfor %}
+  </table>
+  <div class=metanav>
+    <a href="/itemcsv/{{ filename }}">Download a daily summary CSV</a>
+  </div>
+{% endblock %}
