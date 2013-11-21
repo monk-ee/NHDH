@@ -10,7 +10,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 from werkzeug import secure_filename
 import flask_sijax
 
-UPLOAD_FOLDER = 'c:/repos/NHDH/csv'
+UPLOAD_FOLDER = './csv'
 ALLOWED_EXTENSIONS = set(['zip'])
 
 locale.setlocale(locale.LC_ALL, '')
