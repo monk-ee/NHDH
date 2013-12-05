@@ -10,7 +10,10 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 from werkzeug import secure_filename
 import flask_sijax
 
-UPLOAD_FOLDER = 'c:/repos/NHDH/csv'
+# Set the folder to store uploaded csv files
+UPLOAD_FOLDER = os.path.abspath('csv')
+
+# allowed extensions of uploaded files
 ALLOWED_EXTENSIONS = set(['zip'])
 
 locale.setlocale(locale.LC_ALL, '')
@@ -20,6 +23,7 @@ locale.setlocale(locale.LC_ALL, '')
 # @todo sum only cost columns
 # @todo select key/header to group on
 # @todo do locale for money correctly
+# @todo direct fetching of csvs from specified s3 bucket(s) with bucket permissions (role/simple auth?)
 
 
 
