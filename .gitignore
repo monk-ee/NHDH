@@ -1,6 +1,9 @@
 # not the huge csv
 csv/*.csv
 
+# not the pycharm stuff
+.idea
+
 *.py[cod]
 
 # C extensions
