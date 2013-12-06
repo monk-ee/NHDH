@@ -76,7 +76,3 @@ class Daily():
                     path = os.path.join(path, word)
                 zf.extract(member, path)
 
-
-    def index():
-        mdf = month_by_owner()
-        return render_template('breakdown.html', mdf=mdf)
