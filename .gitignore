@@ -3,6 +3,9 @@ NHDH/csv/*.csv
 NHDH/csv/*.zip
 NHDH/csv/*.7z
 
+#no config
+NHDH/config.yml
+
 # not the pycharm stuff
 .idea
 
