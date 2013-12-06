@@ -3,6 +3,9 @@ NHDH/csv/*.csv
 NHDH/csv/*.zip
 NHDH/csv/*.7z
 
+# not the pycharm stuff
+.idea
+
 *.py[cod]
 
 # C extensions
