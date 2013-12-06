@@ -21,7 +21,7 @@ class Fetch():
         self.configObj =  yaml.load(self.configStr)
         #now set detailed billing file
         self.billingFile = str(self.configObj['s3']['account_number'])+"-aws-billing-detailed-line-items-with-resources-and-tags-"+self.datefilename()+".csv.zip"
-        self.billingZip = os.path.abspath('NHDH/csv/'+billingFile)
+        self.billingZip = os.path.abspath('NHDH/csv/'+self.billingFile)
 
     def datefilename(self):
         dt = datetime.now()

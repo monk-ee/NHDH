@@ -1,4 +1,5 @@
 __author__ = 'monkee'
+__version__ = '1.0.1'
 # @todo csv output file
 # @todo df.groupby(['SubscribtionId', 'BlendedCost'])
 # @todo select key/header to group on

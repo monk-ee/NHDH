@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+
 {% block body %}
   <table class=entries>
     <thead>
@@ -12,7 +12,7 @@
   {% for key in mdf.values %}
       {% if loop.index == 1 %}
         <tr>
-            <td colspan="4"> NB that reserved instance billing is added to the bill on the first of the month.</td>
+            <td colspan="4"> NB: reserved instance billing is added to the bill on the first of the month.</td>
         </tr>
         <tr>
             <td>{{ mdf.index[loop.index0] }}</td>
@@ -34,10 +34,8 @@
       </tr>
   {% endfor %}
         <tr>
-            <td colspan="4"> PS today's result may not contain all billing items yet.</td>
+            <td colspan="4"> PS Today's result may not contain all billing items yet.</td>
         </tr>
   </table>
-  <div class=metanav>
-    <a href="/dailycsv/{{ filename }}">Download a daily summary CSV</a>
-  </div>
+
 {% endblock %}
