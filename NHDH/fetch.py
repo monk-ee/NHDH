@@ -52,4 +52,8 @@ class Fetch():
             zipHandle.extract(subfile, self.csvFolder)
 
     def unlink(self):
-        os.remove(self.billingZip)
+        try:
+            with open(self.billingZip):
+             os.remove(self.billingZip)
+        except IOError:
+            print 'Oh dear.'
