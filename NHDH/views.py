@@ -1,5 +1,6 @@
 
 from daily import *
+from fetch import *
 from datetime import datetime
 from StringIO import *
 from flask import request, redirect, url_for,  \
@@ -41,6 +42,13 @@ def unzip_file(filename):
     #return ''
     return redirect(url_for('list_reports',
                                     filename=filename))
+
+@app.route('/fetch')
+def fetch_zip():
+    ff = Fetch()
+    ff.fetch()
+    return ''
+    #return redirect('/')
 
 @app.route('/csv/<filename>')
 def serve_csv(filename):

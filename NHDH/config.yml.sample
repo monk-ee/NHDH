@@ -2,9 +2,9 @@ s3:
  account_number: ''
  billing_bucket: ''
  time_zone: 'Australia/Brisbane'
- s3_name              : ''
- s3_aws_access_key    : ''
- s3_aws_secret_key    : ''
+ name              : ''
+ aws_access_key    : ''
+ aws_secret_key    : ''
 smtp:
  name             : ''
  user             : ''
@@ -12,5 +12,5 @@ smtp:
  server           : ''
  sender_address   : 'me@mysite.com'
  port        :    '587'
- recipients:
+recipients:
     - address : 'test@test.com'
