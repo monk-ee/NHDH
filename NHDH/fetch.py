@@ -21,6 +21,7 @@ class Fetch():
         self.configStr = open(self.configFile, 'r')
         self.configObj =  yaml.load(self.configStr)
         #now set detailed billing file
+        self.billingCsv = str(self.configObj['s3']['account_number'])+"-aws-billing-detailed-line-items-with-resources-and-tags-"+self.datefilename()+".csv"
         self.billingFile = str(self.configObj['s3']['account_number'])+"-aws-billing-detailed-line-items-with-resources-and-tags-"+self.datefilename()+".csv.zip"
         self.billingZip = os.path.abspath('NHDH/csv/'+self.billingFile)
 
@@ -39,10 +40,16 @@ class Fetch():
         #fetch the file to a temporary place on the filesystem
         try:
                 retrieveFile = billingFileNameKey.get_contents_to_filename(self.billingZip)
+                print 'apparent success'
         except boto.exception.S3ResponseError, emsg:
-                print(' S3ResponseError : '+self.billingFile+' '+str(emsg[0])+' '+emsg[1]+' '+str(emsg[2])+'\n')
+                print ' S3ResponseError : '+self.billingFile+' '+str(emsg[0])+' '+emsg[1]+' '+str(emsg[2])
+        self.unzipper()
+        self.unlink()
 
     def unzipper(self):
         zipHandle = zipfile.ZipFile(self.billingZip, mode='r')
         for subfile in zipHandle.namelist():
             zipHandle.extract(subfile, self.csvFolder)
+
+    def unlink(self):
+        os.remove(self.billingZip)

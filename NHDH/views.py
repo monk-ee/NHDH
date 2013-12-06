@@ -47,8 +47,8 @@ def unzip_file(filename):
 def fetch_zip():
     ff = Fetch()
     ff.fetch()
-    return ''
-    #return redirect('/')
+    #return ''
+    return redirect('/')
 
 @app.route('/csv/<filename>')
 def serve_csv(filename):
