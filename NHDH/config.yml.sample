@@ -1,0 +1,7 @@
+s3:
+ account_number:
+ billing_bucket:
+ time_zone: Australia/Brisbane
+ name              :
+ aws_access_key    :
+ aws_secret_key    :
