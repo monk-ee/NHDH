@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c5c9764-62bc-452a-b2a6-973c98dd2652" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NHDH.py" afterPath="$PROJECT_DIR$/NHDH.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/breakdown.html" afterPath="$PROJECT_DIR$/templates/breakdown.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/files.html" afterPath="$PROJECT_DIR$/templates/files.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/tyle.css" afterPath="$PROJECT_DIR$/static/tyle.css" />
+    <list default="true" id="0c5c9764-62bc-452a-b2a6-973c98dd2652" name="Default" comment="initial plaything">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NHDH/csv/314291494078-aws-billing-detailed-line-items-with-resources-and-tags-2013-09.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NHDH/csv/314291494078-aws-billing-detailed-line-items-with-resources-and-tags-2013-10.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NHDH/csv/314291494078-aws-billing-detailed-line-items-with-resources-and-tags-2013-11.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NHDH/csv/314291494078-aws-billing-detailed-line-items-with-resources-and-tags-2013-12 3.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NHDH/csv/314291494078-aws-billing-detailed-line-items-with-resources-and-tags-2013-12.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NHDH/csv/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NHDH/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NHDH/ajaxviews.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NHDH/config.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NHDH/daily.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NHDH/templates/dailyreport.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NHDH/fetch.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runserver.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NHDH/views.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/NHDH.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/csv/371416632205-aws-billing-detailed-line-items-with-resources-and-tags-2013-07.csv_1.zip" afterPath="$PROJECT_DIR$/NHDH/csv/371416632205-aws-billing-detailed-line-items-with-resources-and-tags-2013-07.csv_1.zip" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/csv/371416632205-aws-billing-detailed-line-items-with-resources-and-tags-2013-08.csv_1.zip" afterPath="$PROJECT_DIR$/NHDH/csv/371416632205-aws-billing-detailed-line-items-with-resources-and-tags-2013-08.csv_1.zip" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/csv/371416632205-aws-billing-detailed-line-items-with-resources-and-tags-2013-10.7z" afterPath="$PROJECT_DIR$/NHDH/csv/371416632205-aws-billing-detailed-line-items-with-resources-and-tags-2013-10.7z" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/csv/371416632205-aws-billing-detailed-line-items-with-resources-and-tags-2013-10.csv_2.zip" afterPath="$PROJECT_DIR$/NHDH/csv/371416632205-aws-billing-detailed-line-items-with-resources-and-tags-2013-10.csv_2.zip" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/csv/371416632205-aws-billing-detailed-line-items-with-resources-and-tags-2013-11.csv.zip" afterPath="$PROJECT_DIR$/NHDH/csv/371416632205-aws-billing-detailed-line-items-with-resources-and-tags-2013-11.csv.zip" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/favicon.ico" afterPath="$PROJECT_DIR$/NHDH/static/favicon.ico" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/js/sijax/json2.js" afterPath="$PROJECT_DIR$/NHDH/static/js/sijax/json2.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/js/sijax/sijax.js" afterPath="$PROJECT_DIR$/NHDH/static/js/sijax/sijax.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/js/sijax/sijax_comet.js" afterPath="$PROJECT_DIR$/NHDH/static/js/sijax/sijax_comet.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/js/sijax/sijax_upload.js" afterPath="$PROJECT_DIR$/NHDH/static/js/sijax/sijax_upload.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/js/sijax/sijax_version" afterPath="$PROJECT_DIR$/NHDH/static/js/sijax/sijax_version" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/tyle.css" afterPath="$PROJECT_DIR$/NHDH/static/tyle.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/breakdown.html" afterPath="$PROJECT_DIR$/NHDH/templates/breakdown.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/files.html" afterPath="$PROJECT_DIR$/NHDH/templates/files.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/itembreakdown.html" afterPath="$PROJECT_DIR$/NHDH/templates/itembreakdown.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/layout.html" afterPath="$PROJECT_DIR$/NHDH/templates/layout.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/upload.html" afterPath="$PROJECT_DIR$/NHDH/templates/upload.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/NHDH.iml" afterPath="$PROJECT_DIR$/.idea/NHDH.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NHDH.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -17,7 +49,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/NHDH$NHDH.coverage" NAME="NHDH Coverage Results" MODIFIED="1384835751517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/NHDH$NHDH.coverage" NAME="NHDH Coverage Results" MODIFIED="1386292617808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -31,66 +63,97 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="NHDH.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/NHDH.py">
+      <file leaf-file-name="fetch.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NHDH/fetch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="233" column="32" selection-start="9076" selection-end="9076" vertical-scroll-proportion="0.68174726" vertical-offset="3524" max-vertical-offset="4165">
+            <state line="63" column="51" selection-start="2357" selection-end="2357" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#161#170#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tyle.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/tyle.css">
+      <file leaf-file-name="runserver.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/runserver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="60" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+            <state line="3" column="34" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="breakdown.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/breakdown.html">
+      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NHDH/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="14" selection-start="493" selection-end="493" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="391">
+            <state line="9" column="23" selection-start="225" selection-end="225" vertical-scroll-proportion="-5.1923075" vertical-offset="0" max-vertical-offset="795">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="itembreakdown.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/itembreakdown.html">
+      <file leaf-file-name="daily.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NHDH/daily.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="18" selection-start="497" selection-end="497" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="391">
+            <state line="12" column="36" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="40" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="files.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/files.html">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/NHDH/csv/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="67" selection-start="157" selection-end="157" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="255">
+            <state line="0" column="18" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="392">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/upload.html">
+      <file leaf-file-name="ajaxviews.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NHDH/ajaxviews.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="35" selection-start="80" selection-end="80" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="221">
+            <state line="1" column="9" selection-start="19" selection-end="39" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/layout.html">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NHDH/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="85" selection-start="437" selection-end="437" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="510">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
+              <folding>
+                <element signature="e#1#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NHDH/config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dailyreport.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NHDH/templates/dailyreport.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="98" selection-start="1336" selection-end="1336" vertical-scroll-proportion="-14.291667" vertical-offset="197" max-vertical-offset="720">
               <folding />
             </state>
           </provider>
@@ -114,21 +177,29 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/upload.html" />
-        <option value="$PROJECT_DIR$/templates/layout.html" />
-        <option value="$PROJECT_DIR$/templates/files.html" />
-        <option value="$PROJECT_DIR$/static/tyle.css" />
         <option value="$PROJECT_DIR$/templates/breakdown.html" />
         <option value="$PROJECT_DIR$/templates/itembreakdown.html" />
+        <option value="$PROJECT_DIR$/templates/files.html" />
+        <option value="$PROJECT_DIR$/static/tyle.css" />
+        <option value="$PROJECT_DIR$/templates/dailyreport.html" />
         <option value="$PROJECT_DIR$/NHDH.py" />
+        <option value="$PROJECT_DIR$/fetch.py" />
+        <option value="$PROJECT_DIR$/NHDH/NHDH.py" />
+        <option value="$PROJECT_DIR$/runserver.py" />
+        <option value="$PROJECT_DIR$/NHDH/routes.py" />
+        <option value="$PROJECT_DIR$/NHDH/ajaxviews.py" />
+        <option value="$PROJECT_DIR$/NHDH/__init__.py" />
+        <option value="$PROJECT_DIR$/NHDH/views.py" />
+        <option value="$PROJECT_DIR$/NHDH/daily.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/NHDH/csv/README.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1912" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="y" value="22" />
+    <option name="width" value="1440" />
+    <option name="height" value="874" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -206,7 +277,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.5 (C:/Python27/python.exe) &gt;" />
+              <option name="myItemId" value="&lt; Python 2.7.2 (/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python) &gt;" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -230,7 +301,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="NHDH" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -242,38 +313,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="NHDH" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NHDH" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NHDH" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sijax" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NHDH" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="NHDH" />
@@ -290,10 +329,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/runserver.py" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
@@ -306,7 +346,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
       <recent name="C:\repos\NHDH\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/NHDH" />
     </key>
   </component>
   <component name="RunManager" selected="Python.NHDH">
@@ -466,14 +510,14 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="SDK_HOME" value="/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="NHDH" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NHDH.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/runserver.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -527,29 +571,50 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="22" width="1440" height="874" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3109375" sideWeight="0.7367281" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26327193" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1736111" sideWeight="0.53915274" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26222223" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.46084723" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2631579" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43611112" sideWeight="0.7368421" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2631579" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -565,63 +630,119 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/NHDH.py">
+    <entry file="file://$PROJECT_DIR$/NHDH/templates/upload.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="17" selection-start="1288" selection-end="1288" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="799">
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="2" column="35" selection-start="80" selection-end="80" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="221" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="35" selection-start="80" selection-end="80" vertical-scroll-proportion="-1.3076923" vertical-offset="0" max-vertical-offset="221">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.html">
+    <entry file="file://$PROJECT_DIR$/NHDH/templates/layout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="85" selection-start="437" selection-end="437" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="510">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/files.html">
+    <entry file="file://$PROJECT_DIR$/NHDH/templates/itembreakdown.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="67" selection-start="157" selection-end="157" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="255">
+        <state line="15" column="18" selection-start="497" selection-end="497" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="345">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/tyle.css">
+    <entry file="file://$PROJECT_DIR$/NHDH/templates/files.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="60" selection-start="446" selection-end="446" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+        <state line="4" column="39" selection-start="129" selection-end="129" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="225">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/itembreakdown.html">
+    <entry file="file://$PROJECT_DIR$/NHDH/templates/breakdown.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="18" selection-start="497" selection-end="497" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="391">
+        <state line="15" column="14" selection-start="493" selection-end="493" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="345">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/breakdown.html">
+    <entry file="file://$PROJECT_DIR$/NHDH/static/tyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="14" selection-start="493" selection-end="493" vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="391">
+        <state line="20" column="13" selection-start="550" selection-end="550" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NHDH.py">
+    <entry file="file://$PROJECT_DIR$/NHDH/templates/dailyreport.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="233" column="32" selection-start="9076" selection-end="9076" vertical-scroll-proportion="0.68174726" vertical-offset="3524" max-vertical-offset="4165">
+        <state line="36" column="98" selection-start="1336" selection-end="1336" vertical-scroll-proportion="-14.291667" vertical-offset="197" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NHDH/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="547">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NHDH/fetch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="51" selection-start="2357" selection-end="2357" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035">
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#161#170#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="34" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NHDH/ajaxviews.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="9" selection-start="19" selection-end="39" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NHDH/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1065">
+          <folding>
+            <element signature="e#1#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NHDH/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="23" selection-start="225" selection-end="225" vertical-scroll-proportion="-5.1923075" vertical-offset="0" max-vertical-offset="795">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NHDH/daily.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="36" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="40" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NHDH/csv/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="18" selection-start="18" selection-end="18" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="392">
+          <folding />
         </state>
       </provider>
     </entry>

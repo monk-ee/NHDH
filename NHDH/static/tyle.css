@@ -3,6 +3,28 @@ a, h1, h2       { color: #377BA8; }
 h1, h2          { font-family: sans-serif; margin: 0; }
 h1              { border-bottom: 2px solid #eee; }
 h2              { font-size: 1.2em; }
+table.entries {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.entries th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.entries td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
 
 .page           { margin: 2em auto; width: 35em; border: 1px solid green;
                   padding: 0.8em; background: white; width: 900px}

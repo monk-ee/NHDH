@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block body %}
+  <table class=entries>
+    <thead>
+    <tr>
+        <td>Day</td>
+        <td>Daily Cost</td>
+        <td>Daily % Change</td>
+        <td>Running Total</td>
+    </tr>
+    </thead>
+  {% for key in mdf.values %}
+      {% if loop.index == 1 %}
+        <tr>
+            <td colspan="4"> Please note that reserved instance billing is added to the bill on the first of the month.</td>
+        </tr>
+        <tr>
+            <td>{{ mdf.index[loop.index0] }}</td>
+            <td width="80px"> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][0]) }} </td>
+            <td></td>
+            <td> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][2]) }} </td>
+        </tr>
+      {% else %}
+        <tr>
+            <td>{{ mdf.index[loop.index0] }}</td>
+            <td width="80px"> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][0]) }} </td>
+            <td> {{ '{:20,.2f}'.format(mdf.values[loop.index0][1]*100) }} %</td>
+            <td> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][2]) }} </td>
+        </tr>
+      {% endif %}
+  {% else %}
+      <tr>
+    <td><em>Unbelievable.  No days here so far. Something must be very wrong with your spreadsheet.</em></td>
+      </tr>
+  {% endfor %}
+        <tr>
+            <td colspan="4"> Please note that today's result may not contain all billing items yet.</td>
+        </tr>
+  </table>
+  <div class=metanav>
+    <a href="/dailycsv/{{ filename }}">Download a daily summary CSV</a>
+  </div>
+{% endblock %}

@@ -1,5 +1,7 @@
-# not the huge csv
-csv/*.csv
+# not the huge csvs or any of that stuff
+NHDH/csv/*.csv
+NHDH/csv/*.zip
+NHDH/csv/*.7z
 
 *.py[cod]
 
