@@ -11,7 +11,7 @@ class Daily():
 
     def allowed_file(filename):
         return '.' in filename and \
-               filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+               filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
 
 
     def dataframe_to_json(df):
