@@ -1,6 +1,20 @@
 # NHDH a Stats Reducer for AWS CSV
 The purpose of this program is to reduce the large number of line items in a detailed billing file to a daily/monthly summary.
 
+#### What it does
+ - Downloads direct from your billing bucket
+ - Displays a monthly summary including daily total, % daily difference, running total
+ - Emails the monthly summary  to a list of recipients
+ - processes uploaded files csv
+ - provides a summary csv for download
+
+### What we are currently working on
+ - a better ui - to replace the crappy one monk-ee knocked up
+ - multiple report formats
+ - js graphing
+ - administrative panel
+ - json gui
+
 ## Quickstart
  - You will need to fill out the configuration data in the config.yml.sample and save it as config.yml
  - s3
