@@ -4,11 +4,11 @@ The purpose of this program is to reduce the large number of line items in a det
 #### What it does
  - Downloads direct from your billing bucket
  - Displays a monthly summary including daily total, % daily difference, running total
- - Emails the monthly summary  to a list of recipients
- - processes uploaded files csv
+ - Emails the monthly summary to a list of recipients
+ - processes uploaded billing zip files
  - provides a summary csv for download
 
-### What we are currently working on
+#### What we are currently working on
  - a better ui - to replace the crappy one monk-ee knocked up
  - multiple report formats
  - js graphing
