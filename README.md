@@ -75,3 +75,8 @@ TODO... TOOHARD
 * You'll need Microsoft Visual Studio if you want to compile the pandas and numpy python libraries yourself.
 * You can download precompiled versions of pandas and numpy from pypi site
 * pip for windows is easy too <https://sites.google.com/site/pydatalog/python/pip-for-windows>
+
+### Screenshots
+Screenshot of email body:
+
+![ScreenShot](https://raw.github.com/monk-ee/NHDH/master/screenshots/email_shot.png)
