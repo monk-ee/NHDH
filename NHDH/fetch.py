@@ -11,6 +11,7 @@ from boto.s3.connection import S3Connection
 from datetime import datetime
 from boto.s3.key import Key
 import yaml
+from flask import flash
 
 class Fetch():
     configFile = os.path.abspath('NHDH/config.yml')
@@ -40,11 +41,12 @@ class Fetch():
         #fetch the file to a temporary place on the filesystem
         try:
                 retrieveFile = billingFileNameKey.get_contents_to_filename(self.billingZip)
-                print 'apparent success'
+                flash('Successfully got file from S3.')
+                self.unzipper()
+                self.unlink()
         except boto.exception.S3ResponseError, emsg:
-                print ' S3ResponseError : '+self.billingFile+' '+str(emsg[0])+' '+emsg[1]+' '+str(emsg[2])
-        self.unzipper()
-        self.unlink()
+                flash' S3ResponseError : '+self.billingFile+' '+str(emsg[0])+' '+emsg[1]+' '+str(emsg[2]))
+
 
     def unzipper(self):
         zipHandle = zipfile.ZipFile(self.billingZip, mode='r')
@@ -56,4 +58,4 @@ class Fetch():
             with open(self.billingZip):
              os.remove(self.billingZip)
         except IOError:
-            print 'Oh dear.'
+             flash('Could not delete downloaded zip file.')
