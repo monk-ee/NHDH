@@ -1,9 +1,11 @@
 __author__ = 'monkee'
 __version__ = '1.0.1'
-# @todo csv output file
+
 # @todo df.groupby(['SubscribtionId', 'BlendedCost'])
 # @todo select key/header to group on
-# @todo do locale for money correctly
+# @todo go back in time for a fetch as a dropdown
+# @todo detailed csv/pdf as an attachment
+# @todo filenames as keys
 
 import os
 import locale
