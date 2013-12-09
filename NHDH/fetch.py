@@ -45,7 +45,7 @@ class Fetch():
                 self.unzipper()
                 self.unlink()
         except boto.exception.S3ResponseError, emsg:
-                flash' S3ResponseError : '+self.billingFile+' '+str(emsg[0])+' '+emsg[1]+' '+str(emsg[2]))
+                flash(' S3ResponseError : '+self.billingFile+' '+str(emsg[0])+' '+emsg[1]+' '+str(emsg[2]))
 
 
     def unzipper(self):
