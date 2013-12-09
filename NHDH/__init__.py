@@ -24,7 +24,7 @@ app.secret_key = 'sdakjkdsjksjkjaskjdkaskjdkjkjdkjkjkjdksjkajlkjaskljdkljklsdj'
 app.config['UPLOAD_FOLDER'] = os.path.abspath('NHDH/csv')
 app.config['CONFIG_FILE'] = os.path.abspath('NHDH/config.yml')
 app.config['ALLOWED_EXTENSIONS'] = set(['zip'])
-app.config['CSV_FOLDER'] = os.path.abspath('NHDH/csv')
+app.config['CSV_FOLDER'] = os.path.abspath('NHDH/csv/')
 
 #import yaml here
 configStr = open(app.config['CONFIG_FILE'], 'r')

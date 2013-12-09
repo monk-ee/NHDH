@@ -48,7 +48,7 @@ class Fetch():
     def unzipper(self):
         zipHandle = zipfile.ZipFile(self.billingZip, mode='r')
         for subfile in zipHandle.namelist():
-            zipHandle.extract(subfile, self.csvFolder)
+            zipHandle.extract(subfile, app.config['CSV_FOLDER'])
 
     def unlink(self):
         try:
