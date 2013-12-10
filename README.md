@@ -88,9 +88,11 @@ TODO... TOOHARD
 
 ### Screenshots
 Screenshot of home screen:
+
 ![ScreenShot](https://raw.github.com/monk-ee/NHDH/master/screenshots/home_screen.png)
 
 Screenshot of email body:
+
 ![ScreenShot](https://raw.github.com/monk-ee/NHDH/master/screenshots/email_shot.png)
 
 ### Contributors
