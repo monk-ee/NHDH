@@ -23,6 +23,13 @@ def daily(filename):
     return render_template('dailyreport.html',
                            mdf=mdf)
 
+@app.route('/itemreport/<filename>')
+def item(filename):
+    daily = Daily()
+    idf = daily.month_by_itemdescription(filename)
+    return render_template('itemreport.html',
+                           idf=idf)
+
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':

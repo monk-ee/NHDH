@@ -24,17 +24,27 @@ class Daily():
         ]
         return d
 
+    def month_by_day(self,filename):
+        file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
+        df = df[np.isfinite(df['SubscriptionId'])]
+        gb = df.groupby([lambda x: x.day]).sum()
+        jb = gb[['Cost']]
+        jb['Change'] = jb['Cost'].pct_change()
+        jb['Cumulative'] = jb['Cost'].cumsum()
+        return jb
 
-    def month_by_itemdescription(filename):
+    def month_by_itemdescription(self,filename):
         file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         df = pd.read_csv(file, index_col='UsageStartDate', dtype={'ItemDescription': str}, parse_dates=True, header=0)
-        gb = df.groupby(['ItemDescription']).sum()
+        df = df[np.isfinite(df['SubscriptionId'])]
+        gb = df.groupby(['ItemDescription']).sum().sort('Cost', ascending=False)
         jb = gb[['Cost']]
-        pd.options.display.float_format = '{:20,.2f}'.format
+        jb['Cumulative'] = jb['Cost'].cumsum()
         return jb
 
 
-    def month_by_az(filename):
+    def month_by_az(self,filename):
         file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         df = pd.read_csv(file, index_col='UsageStartDate', dtype={'AvailabilityZone': str}, parse_dates=True, header=0)
         gb = df.groupby(['ReservedInstance']).sum()
@@ -48,17 +58,6 @@ class Daily():
         df_f = df[df['ItemDescription'] == t3]
         gb = df_f.groupby([lambda x: x.day]).sum()
         jb = gb[['Cost']]
-        return jb
-
-
-    def month_by_day(self,filename):
-        file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
-        df = df[np.isfinite(df['SubscriptionId'])]
-        gb = df.groupby([lambda x: x.day]).sum()
-        jb = gb[['Cost']]
-        jb['Change'] = jb['Cost'].pct_change()
-        jb['Cumulative'] = jb['Cost'].cumsum()
         return jb
 
 
