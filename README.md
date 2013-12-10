@@ -46,13 +46,14 @@ The purpose of this program is to reduce the large number of line items in a det
  - you can change the port in the runserver.py
 
 #### Dependencies
- - Flask==0.9
- - flask_sijax==0.3.2
- - Jinja2==2.6
- - Werkzeug==0.8.3
+ - Flask==0.10.1
+ - Jinja2==2.7.1
+ - Werkzeug==0.9.4
  - wsgiref==0.1.2
+ - boto==2.19.0
  - numpy==1.8.0
  - pandas==0.12.0
+ - PyYAML==3.10
 
 ### Debian/Ubuntu
 
