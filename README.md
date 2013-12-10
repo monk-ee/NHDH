@@ -45,6 +45,15 @@ The purpose of this program is to reduce the large number of line items in a det
 
  - you can change the port in the runserver.py
 
+#### Dependencies
+ - Flask==0.9
+ - flask_sijax==0.3.2
+ - Jinja2==2.6
+ - Werkzeug==0.8.3
+ - wsgiref==0.1.2
+ - numpy==1.8.0
+ - pandas==0.12.0
+
 ### Debian/Ubuntu
 
 (Only debian/ubuntu instructions for now until I test it all out on RHEL)
@@ -77,11 +86,13 @@ TODO... TOOHARD
 * pip for windows is easy too <https://sites.google.com/site/pydatalog/python/pip-for-windows>
 
 ### Screenshots
-Screenshot of email body:
+Screenshot of home screen:
+![ScreenShot](https://raw.github.com/monk-ee/NHDH/master/screenshots/home_screen.png)
 
+Screenshot of email body:
 ![ScreenShot](https://raw.github.com/monk-ee/NHDH/master/screenshots/email_shot.png)
 
 ### Contributors
-@monkee_magic - hidden code development - poor html and css
-@geekpetedotcom - hidden code and quality control
-@linkthief - the stuff that everyone sees
+ - @monkee_magic - hidden code development - poor html and css
+ - @geekpetedotcom - hidden code and quality control
+ - @linkthief - the stuff that everyone sees
