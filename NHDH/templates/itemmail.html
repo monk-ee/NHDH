@@ -1,0 +1,24 @@
+
+{% block body %}
+<table class=entries>
+    <thead>
+    <tr>
+        <td>Item</td>
+        <td>Item Cost (to date)</td>
+        <td>Running Total</td>
+    </tr>
+    </thead>
+  {% for key in idf.values %}
+        <tr>
+            <td>{{ idf.index[loop.index0] }}</td>
+            <td width="80px"> ${{ '{:20,.2f}'.format(idf.values[loop.index0][0]) }} </td>
+            <td> ${{ '{:20,.2f}'.format(idf.values[loop.index0][1]) }} </td>
+        </tr>
+  {% else %}
+      <tr>
+    <td><em>Unbelievable.  No items here so far. Something must be very wrong with your spreadsheet.</em></td>
+      </tr>
+  {% endfor %}
+  </table>
+
+{% endblock %}

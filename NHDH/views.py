@@ -79,9 +79,30 @@ def serve_mail(filename):
     show = dt.strftime("%A %d %B %Y")
     try:
         py_email('Daily Report '+ show, html)
+        flash('Successfully sent daily mail.')
         return redirect('/')
     except smtplib.SMTPException, emsg:
-        return ' SMTPException : '+str(emsg)
+        #return ' SMTPException : '+str(emsg)
+        flash(' SMTPException : '+str(emsg))
+        return redirect('/')
+
+
+@app.route('/itemmail/<filename>')
+def item_mail(filename):
+    daily = Daily()
+    idf = daily.month_by_itemdescription(filename)
+    html = render_template('itemmail.html',
+                           idf=idf)
+    dt = datetime.now()
+    show = dt.strftime("%A %d %B %Y")
+    try:
+        py_email('Item Breakdown Report '+ show, html)
+        flash('Successfully sent item breakdown mail.')
+        return redirect('/')
+    except smtplib.SMTPException, emsg:
+        #return ' SMTPException : '+str(emsg)
+        flash(' SMTPException : '+str(emsg))
+        return redirect('/')
 
 @app.route('/itemcsv/<filename>')
 def serve_itemcsv(filename):
