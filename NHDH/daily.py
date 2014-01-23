@@ -34,7 +34,7 @@ class Daily():
             file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
             if fill is not None:
-                df = df.fillna({tag_key:%s %(fill)})
+                df = df.fillna({tag_key:'%s' %(fill)})
             df = df[np.isfinite(df['SubscriptionId'])]
             gb = df.groupby(by='user:%s' % tag_key)
             gb = gb.get_group(value)

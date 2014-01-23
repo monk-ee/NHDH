@@ -14,7 +14,6 @@ import yaml
 from flask import Flask
 from werkzeug import secure_filename
 
-
 #immutable configuration items
 locale.setlocale(locale.LC_ALL, '')
 
@@ -29,6 +28,7 @@ app.config['CSV_FOLDER'] = os.path.abspath('NHDH/csv/')
 #import yaml here
 configStr = open(app.config['CONFIG_FILE'], 'r')
 app.config['CONFIG'] = yaml.load(configStr)
+
 
 #import views here
 import NHDH.views
