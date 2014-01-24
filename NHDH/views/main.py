@@ -10,6 +10,7 @@ from flask import Blueprint, request, redirect, url_for,  \
 from werkzeug import secure_filename
 
 main  = Blueprint('main', __name__)
+cache_timeout = int(app.config['CONFIG']['cache']['timeout'])
 
 @main.route('/')
 def list_reports():
@@ -21,6 +22,7 @@ def list_reports():
     return render_template('files.html', csv=csv)
 
 @main.route('/dailyreport/<filename>')
+@cache.cached(timeout=cache_timeout)
 def daily(filename):
     daily = Daily()
     mdf = daily.month_by_day(filename)
@@ -28,6 +30,7 @@ def daily(filename):
                            mdf=mdf)
 
 @main.route('/itemreport/<filename>')
+@cache.cached(timeout=cache_timeout)
 def item(filename):
     daily = Daily()
     idf = daily.month_by_itemdescription(filename)
@@ -63,6 +66,7 @@ def fetch_zip():
     return redirect('/')
 
 @main.route('/csv/<filename>')
+@cache.cached(timeout=cache_timeout)
 def serve_csv(filename):
     daily = Daily()
     mdf = daily.month_by_day(filename)
@@ -109,6 +113,7 @@ def item_mail(filename):
         return redirect('/')
 
 @main.route('/itemcsv/<filename>')
+@cache.cached(timeout=cache_timeout)
 def serve_itemcsv(filename):
     mdf = month_by_owner_item(filename)
     buffer = StringIO()

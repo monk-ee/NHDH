@@ -18,3 +18,5 @@ general:
  filter: ''
  time_zone: 'Australia/Brisbane'
  debug: 'true'
+cache:
+ timeout: '600'
