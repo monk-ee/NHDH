@@ -34,7 +34,7 @@ class Daily():
             file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
             if fill is not None:
-                df = df.fillna({tag_key:%s %(fill)})
+                df = df.fillna({tag_key:'%s' %(fill)})
             df = df[np.isfinite(df['SubscriptionId'])]
             gb = df.groupby(by='user:%s' % tag_key)
             gb = gb.get_group(value)
@@ -61,18 +61,18 @@ class Daily():
         df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
         df = df[np.isfinite(df['SubscriptionId'])]
         gb = df.groupby([lambda x: x.day]).sum()
-        jb = gb[['Cost']]
-        jb['Change'] = jb['Cost'].pct_change()
-        jb['Cumulative'] = jb['Cost'].cumsum()
+        jb = gb[['UnBlendedCost']]
+        jb['Change'] = jb['UnBlendedCost'].pct_change()
+        jb['Cumulative'] = jb['UnBlendedCost'].cumsum()
         return jb
 
     def month_by_itemdescription(self,filename):
         file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         df = pd.read_csv(file, index_col='UsageStartDate', dtype={'ItemDescription': str}, parse_dates=True, header=0)
         df = df[np.isfinite(df['SubscriptionId'])]
-        gb = df.groupby(['ItemDescription']).sum().sort('Cost', ascending=False)
-        jb = gb[['Cost']]
-        jb['Cumulative'] = jb['Cost'].cumsum()
+        gb = df.groupby(['ItemDescription']).sum().sort('UnBlendedCost', ascending=False)
+        jb = gb[['UnBlendedCost']]
+        jb['Cumulative'] = jb['UnBlendedCost'].cumsum()
         return jb
 
 
@@ -80,7 +80,7 @@ class Daily():
         file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         df = pd.read_csv(file, index_col='UsageStartDate', dtype={'AvailabilityZone': str}, parse_dates=True, header=0)
         gb = df.groupby(['ReservedInstance']).sum()
-        jb = gb[['Cost']]
+        jb = gb[['UnBlendedCost']]
         return jb
 
 
@@ -89,7 +89,7 @@ class Daily():
         df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
         df_f = df[df['ItemDescription'] == t3]
         gb = df_f.groupby([lambda x: x.day]).sum()
-        jb = gb[['Cost']]
+        jb = gb[['UnBlendedCost']]
         return jb
 
 

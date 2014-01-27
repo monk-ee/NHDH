@@ -1,13 +1,18 @@
-
-from daily import *
-from fetch import *
+from NHDH.modules.daily import *
+from NHDH.modules.fetch import *
+from NHDH.modules.py_email import *
+from NHDH.modules.cache import cache
 from datetime import datetime
+from dateutil import parser
 from StringIO import *
-from flask import request, redirect, url_for,  \
-     render_template, flash, send_from_directory,  send_file
-from py_email import *
+from flask import Blueprint, request, redirect, url_for,  \
+     render_template, flash, send_from_directory, send_file
+from werkzeug import secure_filename
 
-@app.route('/')
+main  = Blueprint('main', __name__)
+cache_timeout = int(app.config['CONFIG']['cache']['timeout'])
+
+@main.route('/')
 def list_reports():
     os.chdir(app.config['UPLOAD_FOLDER'])
     csv = list()
@@ -16,21 +21,23 @@ def list_reports():
             csv.append(files)
     return render_template('files.html', csv=csv)
 
-@app.route('/dailyreport/<filename>')
+@main.route('/dailyreport/<filename>')
+@cache.cached(timeout=cache_timeout)
 def daily(filename):
     daily = Daily()
     mdf = daily.month_by_day(filename)
     return render_template('dailyreport.html',
                            mdf=mdf)
 
-@app.route('/itemreport/<filename>')
+@main.route('/itemreport/<filename>')
+@cache.cached(timeout=cache_timeout)
 def item(filename):
     daily = Daily()
     idf = daily.month_by_itemdescription(filename)
     return render_template('itemreport.html',
                            idf=idf)
 
-@app.route('/upload', methods=['GET', 'POST'])
+@main.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
@@ -44,21 +51,22 @@ def upload_file():
             flash('Invalid file type or file error.')
     return render_template('upload.html')
 
-@app.route('/uploads/<filename>')
+@main.route('/uploads/<filename>')
 def unzip_file(filename):
     unzip(os.path.join(app.config['UPLOAD_FOLDER'],filename),app.config['UPLOAD_FOLDER'])
     #return ''
     return redirect(url_for('list_reports',
                                     filename=filename))
 
-@app.route('/fetch')
+@main.route('/fetch')
 def fetch_zip():
     ff = Fetch()
     ff.fetch()
     #return ''
     return redirect('/')
 
-@app.route('/csv/<filename>')
+@main.route('/csv/<filename>')
+@cache.cached(timeout=cache_timeout)
 def serve_csv(filename):
     daily = Daily()
     mdf = daily.month_by_day(filename)
@@ -69,7 +77,7 @@ def serve_csv(filename):
                      attachment_filename="test.csv",
                      mimetype='text/csv')
 
-@app.route('/mail/<filename>')
+@main.route('/mail/<filename>')
 def serve_mail(filename):
     daily = Daily()
     mdf = daily.month_by_day(filename)
@@ -87,7 +95,7 @@ def serve_mail(filename):
         return redirect('/')
 
 
-@app.route('/itemmail/<filename>')
+@main.route('/itemmail/<filename>')
 def item_mail(filename):
     daily = Daily()
     idf = daily.month_by_itemdescription(filename)
@@ -104,7 +112,8 @@ def item_mail(filename):
         flash(' SMTPException : '+str(emsg))
         return redirect('/')
 
-@app.route('/itemcsv/<filename>')
+@main.route('/itemcsv/<filename>')
+@cache.cached(timeout=cache_timeout)
 def serve_itemcsv(filename):
     mdf = month_by_owner_item(filename)
     buffer = StringIO()
@@ -114,7 +123,7 @@ def serve_itemcsv(filename):
                      attachment_filename="test.csv",
                      mimetype='text/csv')
 
-@app.route('/favicon.ico')
+@main.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
