@@ -99,3 +99,4 @@ Screenshot of email body:
  - @monkee_magic - hidden code development - poor html and css
  - @geekpetedotcom - hidden code and quality control
  - @linkthief - the stuff that everyone sees
+ - @dizzy_thinks - mad refactoring skills
