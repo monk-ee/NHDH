@@ -122,20 +122,26 @@ class Daily():
 
     def month_by_az(self,filename):
         jb = False
-        file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        df = pd.read_csv(file, index_col='UsageStartDate', dtype={'AvailabilityZone': str}, parse_dates=True, header=0)
-        gb = df.groupby(['ReservedInstance']).sum()
-        jb = gb[['UnBlendedCost']]
+        try:
+            file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            df = pd.read_csv(file, index_col='UsageStartDate', dtype={'AvailabilityZone': str}, parse_dates=True, header=0)
+            gb = df.groupby(['ReservedInstance']).sum()
+            jb = gb[['UnBlendedCost']]
+        except:
+            pass
         return jb
 
 
     def day_by_itemdescription(t3, filename):
         jb = False
-        file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
-        df_f = df[df['ItemDescription'] == t3]
-        gb = df_f.groupby([lambda x: x.day]).sum()
-        jb = gb[['UnBlendedCost']]
+        try:
+            file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
+            df_f = df[df['ItemDescription'] == t3]
+            gb = df_f.groupby([lambda x: x.day]).sum()
+            jb = gb[['UnBlendedCost']]
+        except:
+            pass
         return jb
 
 
