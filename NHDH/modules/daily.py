@@ -31,6 +31,7 @@ class Daily():
         cumulative = False
         detailed = False
         try:
+            #this is for the reports that have blended and unblended costs
             file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
             if fill is not None:
@@ -52,31 +53,75 @@ class Daily():
             jb['Cumulative'] = jb['UnBlendedCost'].cumsum()
             cumulative = {value: jb}
         except:
-            pass
+            #a BIG assumption here but if we don't have unblended cost we must have Cost
+            file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
+            if fill is not None:
+                df = df.fillna({tag_key:'%s' %(fill)})
+            df = df[np.isfinite(df['SubscriptionId'])]
+            gb = df.groupby(by='user:%s' % tag_key)
+            gb = gb.get_group(value)
+
+            # work out product detailed breakdown for current month so far
+            db = gb.groupby(['ItemDescription']).sum().sort('Cost', ascending=False)
+            jbb = db[['Cost']]
+            jbb['Cumulative'] = jbb['Cost'].cumsum()
+            detailed = {value: jbb}
+
+            # work out cumulative product cost for current month so far
+            pb = gb.groupby([lambda x: x.day]).sum()
+            jb = pb[['Cost']]
+            jb['Change'] = jb['Cost'].pct_change()
+            jb['Cumulative'] = jb['Cost'].cumsum()
+            cumulative = {value: jb}
         return cumulative, detailed
 
 
     def month_by_day(self,filename):
-        file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
-        df = df[np.isfinite(df['SubscriptionId'])]
-        gb = df.groupby([lambda x: x.day]).sum()
-        jb = gb[['UnBlendedCost']]
-        jb['Change'] = jb['UnBlendedCost'].pct_change()
-        jb['Cumulative'] = jb['UnBlendedCost'].cumsum()
+        jb = False
+        try:
+            #this is for the reports that have blended and unblended costs
+            file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
+            df = df[np.isfinite(df['SubscriptionId'])]
+            gb = df.groupby([lambda x: x.day]).sum()
+            jb = gb[['UnBlendedCost']]
+            jb['Change'] = jb['UnBlendedCost'].pct_change()
+            jb['Cumulative'] = jb['UnBlendedCost'].cumsum()
+        except:
+            #a BIG assumption here but if we don't have unblended cost we must have Cost
+            file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
+            df = df[np.isfinite(df['SubscriptionId'])]
+            gb = df.groupby([lambda x: x.day]).sum()
+            jb = gb[['Cost']]
+            jb['Change'] = jb['Cost'].pct_change()
+            jb['Cumulative'] = jb['Cost'].cumsum()
         return jb
 
     def month_by_itemdescription(self,filename):
-        file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        df = pd.read_csv(file, index_col='UsageStartDate', dtype={'ItemDescription': str}, parse_dates=True, header=0)
-        df = df[np.isfinite(df['SubscriptionId'])]
-        gb = df.groupby(['ItemDescription']).sum().sort('UnBlendedCost', ascending=False)
-        jb = gb[['UnBlendedCost']]
-        jb['Cumulative'] = jb['UnBlendedCost'].cumsum()
+        jb = False
+        try:
+            #this is for the reports that have blended and unblended costs
+            file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            df = pd.read_csv(file, index_col='UsageStartDate', dtype={'ItemDescription': str}, parse_dates=True, header=0)
+            df = df[np.isfinite(df['SubscriptionId'])]
+            gb = df.groupby(['ItemDescription']).sum().sort('UnBlendedCost', ascending=False)
+            jb = gb[['UnBlendedCost']]
+            jb['Cumulative'] = jb['UnBlendedCost'].cumsum()
+        except:
+            #a BIG assumption here but if we don't have unblended cost we must have Cost
+            file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            df = pd.read_csv(file, index_col='UsageStartDate', dtype={'ItemDescription': str}, parse_dates=True, header=0)
+            df = df[np.isfinite(df['SubscriptionId'])]
+            gb = df.groupby(['ItemDescription']).sum().sort('Cost', ascending=False)
+            jb = gb[['Cost']]
+            jb['Cumulative'] = jb['Cost'].cumsum()
         return jb
 
 
     def month_by_az(self,filename):
+        jb = False
         file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         df = pd.read_csv(file, index_col='UsageStartDate', dtype={'AvailabilityZone': str}, parse_dates=True, header=0)
         gb = df.groupby(['ReservedInstance']).sum()
@@ -85,6 +130,7 @@ class Daily():
 
 
     def day_by_itemdescription(t3, filename):
+        jb = False
         file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
         df_f = df[df['ItemDescription'] == t3]
