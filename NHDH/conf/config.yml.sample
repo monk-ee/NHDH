@@ -20,3 +20,6 @@ general:
  debug: 'true'
 cache:
  timeout: '600'
+scheduler:
+ hourly_interval: '4'
+logfile: 'nhdh.log'

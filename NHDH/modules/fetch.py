@@ -27,7 +27,7 @@ class Fetch():
         dt = datetime.now()
         return dt.strftime("%Y-%m")
 
-    def fetch(self):
+    def fetch(self,scheduler=False):
         # get a bucket connection
         bucketConn = S3Connection(app.config['CONFIG']['s3']['aws_access_key'], app.config['CONFIG']['s3']['aws_secret_key'])
         #file name
@@ -38,11 +38,17 @@ class Fetch():
         #fetch the file to a temporary place on the filesystem
         try:
                 retrieveFile = billingFileNameKey.get_contents_to_filename(self.billingZip)
-                flash('Successfully got file from S3.')
+                if scheduler:
+                    print "Successfully got file from S3."
+                else:
+                    flash('Successfully got file from S3.')
                 self.unzipper()
                 self.unlink()
         except boto.exception.S3ResponseError, emsg:
-                flash(' S3ResponseError : '+self.billingFile+' '+str(emsg[0])+' '+emsg[1]+' '+str(emsg[2]))
+                if scheduler:
+                    print ' S3ResponseError : '+self.billingFile+' '+str(emsg[0])+' '+emsg[1]+' '+str(emsg[2])
+                else:
+                    flash(' S3ResponseError : '+self.billingFile+' '+str(emsg[0])+' '+emsg[1]+' '+str(emsg[2]))
 
 
     def unzipper(self):

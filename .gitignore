@@ -6,6 +6,9 @@ NHDH/csv/*.7z
 #no config
 NHDH/conf/config.yml
 
+#not the log file
+nhdh.log
+
 # not the pycharm stuff
 .idea
 

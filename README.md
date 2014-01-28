@@ -54,6 +54,8 @@ The purpose of this program is to reduce the large number of line items in a det
  - numpy==1.8.0
  - pandas==0.12.0
  - PyYAML==3.10
+ - Flask-Cache==0.12
+ - APScheduler==2.1.1
 
 ### Debian/Ubuntu
 
