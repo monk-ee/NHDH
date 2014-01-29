@@ -30,74 +30,64 @@ class Daily():
         Returns two dictionaries containing cumulative cost and detailed cost"""
         cumulative = False
         detailed = False
-        try:
-            #this is for the reports that have blended and unblended costs
-            file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
-            if fill is not None:
+        file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
+        if fill is not None:
                 df = df.fillna({tag_key:'%s' %(fill)})
-            df = df[np.isfinite(df['SubscriptionId'])]
-            gb = df.groupby(by='user:%s' % tag_key)
-            gb = gb.get_group(value)
-            
-            # work out product detailed breakdown for current month so far
-            db = gb.groupby(['ItemDescription']).sum().sort('UnBlendedCost', ascending=False)
-            jbb = db[['UnBlendedCost']]
-            jbb['Cumulative'] = jbb['UnBlendedCost'].cumsum()
-            detailed = {value: jbb}
+        df = df[np.isfinite(df['SubscriptionId'])]
+        gb = df.groupby(by='user:%s' % tag_key)
+        gb = gb.get_group(value)
 
-            # work out cumulative product cost for current month so far
-            pb = gb.groupby([lambda x: x.day]).sum()
-            jb = pb[['UnBlendedCost']]
-            jb['Change'] = jb['UnBlendedCost'].pct_change()
-            jb['Cumulative'] = jb['UnBlendedCost'].cumsum()
-            cumulative = {value: jb}
-        except:
-            #a BIG assumption here but if we don't have unblended cost we must have Cost
-            file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
-            if fill is not None:
-                df = df.fillna({tag_key:'%s' %(fill)})
-            df = df[np.isfinite(df['SubscriptionId'])]
-            gb = df.groupby(by='user:%s' % tag_key)
-            gb = gb.get_group(value)
+        cost_types = ['Cost', 'UnBlendedCost']
 
-            # work out product detailed breakdown for current month so far
-            db = gb.groupby(['ItemDescription']).sum().sort('Cost', ascending=False)
-            jbb = db[['Cost']]
-            jbb['Cumulative'] = jbb['Cost'].cumsum()
-            detailed = {value: jbb}
+        for cost in cost_types:
+            try:
+                db = gb.groupby(['ItemDescription']).sum().sort(cost, ascending=False)
+                jbb = db[[cost]]
+                jbb['Cumulative'] = jbb[cost].cumsum()
+                detailed = {value: jbb}
 
-            # work out cumulative product cost for current month so far
-            pb = gb.groupby([lambda x: x.day]).sum()
-            jb = pb[['Cost']]
-            jb['Change'] = jb['Cost'].pct_change()
-            jb['Cumulative'] = jb['Cost'].cumsum()
-            cumulative = {value: jb}
+                pb = gb.groupby([lambda x: x.day]).sum()
+                jb = pb[[cost]]
+                jb['Change'] = jb[cost].pct_change()
+                jb['Cumulative'] = jb[cost].cumsum()
+                cumulative = {value: jb}
+
+                db = gb.groupby(['ItemDescription']).sum().sort(cost, ascending=False)
+                jbb = db[[cost]]
+                jbb['Cumulative'] = jbb[cost].cumsum()
+                detailed = {value: jbb}
+                break
+            except:
+                continue
+
         return cumulative, detailed
 
 
     def month_by_day(self,filename):
         jb = False
-        try:
-            #this is for the reports that have blended and unblended costs
-            file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
-            df = df[np.isfinite(df['SubscriptionId'])]
-            gb = df.groupby([lambda x: x.day]).sum()
-            jb = gb[['UnBlendedCost']]
-            jb['Change'] = jb['UnBlendedCost'].pct_change()
-            jb['Cumulative'] = jb['UnBlendedCost'].cumsum()
-        except:
-            #a BIG assumption here but if we don't have unblended cost we must have Cost
-            file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
-            df = df[np.isfinite(df['SubscriptionId'])]
-            gb = df.groupby([lambda x: x.day]).sum()
-            jb = gb[['Cost']]
-            jb['Change'] = jb['Cost'].pct_change()
-            jb['Cumulative'] = jb['Cost'].cumsum()
+        file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
+        df = df[np.isfinite(df['SubscriptionId'])]
+        gb = df.groupby([lambda x: x.day]).sum()
+
+        cost_types = ['Cost', 'UnBlendedCost']
+        for cost in cost_types:
+            jb = build_jb(gb, cost)
+            if jb:
+                break
         return jb
+
+
+    def build_jb(gb, cost):
+        try:
+            jb = gb[[cost]]
+            jb['Change'] = jb[cost].pct_change()
+            jb['Cumulative'] = jb[cost].cumsum()
+        except:
+            jb = False
+        return jb
+
 
     def month_by_itemdescription(self,filename):
         jb = False
