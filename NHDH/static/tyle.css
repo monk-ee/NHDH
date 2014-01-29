@@ -29,7 +29,7 @@ table.entries td {
 .page           { margin: 2em auto; width: 35em; border: 1px solid green;
                   padding: 0.8em; background: white; width: 900px}
 .entries        { list-style: none; margin: 0; padding: 0; }
-.entries li     { margin: 0.8em 1.2em; font-size: 0.7em}
+.entries li     { margin: 0.8em 1.2em; font-size: 0.8em}
 .entries li h2  { margin-left: -1em; font-size: 0.9em}
 .add-entry      { font-size: 0.9em; border-bottom: 1px solid #ccc; }
 .add-entry dl   { font-weight: bold; }

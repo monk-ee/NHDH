@@ -7,11 +7,12 @@ The purpose of this program is to reduce the large number of line items in a det
  - Emails the monthly summary to a list of recipients
  - processes uploaded billing zip files
  - provides a summary csv for download
+ - basic js graphing
+ - flask caching - for thoe large reports
 
 #### What we are currently working on
  - a better ui - to replace the crappy one monk-ee knocked up
  - multiple report formats
- - js graphing
  - administrative panel
  - json gui
 
@@ -34,10 +35,13 @@ The purpose of this program is to reduce the large number of line items in a det
  - address     : 'test@test.com'
  - general:
  - format           : 'standard' # we have noticed that there are different formats for the bills
+ - filter: ''
  - debug            : 'True' # bugginess to be reported
- - filter           : 'not implemented' # this will be a user based filter - currently not used
- - time_zone        : 'Australia/Brisbane' # timezone
- - version          : '1.0.0' # current build version - Don't touch please
+ - cache:
+ - timeout: '600'#the length of time you want your pages cached
+ - scheduler:
+ - hourly_interval: '4' #the interval at which the scheduler runs
+ - logfile: 'nhdh.log' # a log file mainly for scheduler actions
 
  - on the AWS side you will need to ensure that the S3 billing bucket has a policy to allow access to it and that programmatic access to billing is enabled.
 
@@ -69,7 +73,7 @@ Install the required python libraries:
 
 `sudo pip install -r requirements`
 
-### NHDH has been changed to a simple package.
+### NHDH has been changed to a flask blueprint.
 
 Run it up:
 
@@ -77,6 +81,10 @@ Run it up:
 
 Test by going to:
 <http://localhost:5000/> or <http://yourservername:5000/>
+
+To run the scheduler:
+Run
+./scheduler.py
 
 ### RHEL
 
@@ -89,9 +97,17 @@ TODO... TOOHARD
 * pip for windows is easy too <https://sites.google.com/site/pydatalog/python/pip-for-windows>
 
 ### Screenshots
-Screenshot of home screen:
+Screenshot of home view:
 
 ![ScreenShot](https://raw.github.com/monk-ee/NHDH/master/screenshots/home_screen.png)
+
+Screenshot of daily summary view:
+
+![ScreenShot](https://raw.github.com/monk-ee/NHDH/master/screenshots/daily_screen.png)
+
+Screenshot of daily graph view:
+
+![ScreenShot](https://raw.github.com/monk-ee/NHDH/master/screenshots/daily_graph.png)
 
 Screenshot of email body:
 
