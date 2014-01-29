@@ -8,11 +8,11 @@ The purpose of this program is to reduce the large number of line items in a det
  - processes uploaded billing zip files
  - provides a summary csv for download
  - basic js graphing
- - flask caching - for thoe large reports
+ - flask caching - for those large reports
+ - added support for UnBlendedCost or Cost report formats - its a kludge but it works
 
 #### What we are currently working on
  - a better ui - to replace the crappy one monk-ee knocked up
- - multiple report formats
  - administrative panel
  - json gui
 
@@ -83,8 +83,10 @@ Test by going to:
 <http://localhost:5000/> or <http://yourservername:5000/>
 
 To run the scheduler:
-Run
-./scheduler.py
+
+Run:
+
+`./scheduler.py`
 
 ### RHEL
 
