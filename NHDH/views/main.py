@@ -29,6 +29,14 @@ def daily(filename):
     return render_template('dailyreport.html',
                            mdf=mdf)
 
+@main.route('/dailygraph/<filename>')
+@cache.cached(timeout=cache_timeout)
+def dailygraph(filename):
+    daily = Daily()
+    mdf = daily.month_by_day(filename)
+    return render_template('dailygraph.html',
+                           mdf=mdf)
+
 @main.route('/itemreport/<filename>')
 @cache.cached(timeout=cache_timeout)
 def item(filename):

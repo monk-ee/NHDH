@@ -1,0 +1,27 @@
+<!doctype html>
+<title>AWS Billing Reducer</title>
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="{{ url_for('static', filename='Chart.js') }}"></script>
+	<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+	<style>
+		canvas{
+		}
+	</style>
+</head>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='tyle.css') }}">
+<div class=page>
+  <h1>AWS Billing Reducer</h1>
+  <div class=metanav>
+      |
+      <a href="/fetch" >Fetch a Report</a>
+      |
+      <a href="/upload" >Upload a Report</a>
+      |
+      <a href="/" >Home</a>
+  </div>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% block body %}{% endblock %}
+</div>
