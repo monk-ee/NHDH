@@ -15,7 +15,7 @@ class scheduler():
         logging.basicConfig(filename=str(app.config['CONFIG']['logfile']),level=logging.INFO)
         sched = Scheduler(daemon=True)
         sched.start()
-        sched.add_interval_job(lambda: self.fetch_report_by_interval(), hours=str(app.config['CONFIG']['scheduler']['hourly_interval']))
+        sched.add_interval_job(lambda: self.fetch_report_by_interval(), hours=int(app.config['CONFIG']['scheduler']['hourly_interval']))
         while True:
             pass
 
