@@ -79,7 +79,7 @@ class Daily():
         return jb
 
 
-    def build_jb(self,gb, cost):
+    def build_jb(self, gb, cost):
         try:
             jb = gb[[cost]]
             jb['Change'] = jb[cost].pct_change()
