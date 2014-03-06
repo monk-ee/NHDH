@@ -73,13 +73,13 @@ class Daily():
 
         cost_types = ['Cost', 'UnBlendedCost']
         for cost in cost_types:
-            jb = build_jb(gb, cost)
+            jb = self.build_jb(gb, cost)
             if jb:
                 break
         return jb
 
 
-    def build_jb(gb, cost):
+    def build_jb(self,gb, cost):
         try:
             jb = gb[[cost]]
             jb['Change'] = jb[cost].pct_change()
