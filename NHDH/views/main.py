@@ -7,12 +7,13 @@ from dateutil import parser
 from StringIO import *
 from flask import Blueprint, request, redirect, url_for,  \
      render_template, flash, send_from_directory, send_file
-from werkzeug import secure_filename
+from flask.ext.login import login_user , logout_user , current_user , login_required
 
 main  = Blueprint('main', __name__)
 cache_timeout = int(app.config['CONFIG']['cache']['timeout'])
 
 @main.route('/')
+@login_required
 def list_reports():
     os.chdir(app.config['UPLOAD_FOLDER'])
     csv = list()
@@ -21,7 +22,9 @@ def list_reports():
             csv.append(files)
     return render_template('files.html', csv=csv)
 
+
 @main.route('/dailyreport/<filename>')
+@login_required
 @cache.cached(timeout=cache_timeout)
 def daily(filename):
     daily = Daily()
@@ -30,6 +33,7 @@ def daily(filename):
                            mdf=mdf)
 
 @main.route('/dailygraph/<filename>')
+@login_required
 @cache.cached(timeout=cache_timeout)
 def dailygraph(filename):
     daily = Daily()
@@ -38,14 +42,16 @@ def dailygraph(filename):
                            mdf=mdf)
 
 @main.route('/itemreport/<filename>')
-@cache.cached(timeout=cache_timeout)
+@login_required
+#@cache.cached(timeout=cache_timeout)
 def item(filename):
     daily = Daily()
     idf = daily.month_by_itemdescription(filename)
     return render_template('itemreport.html',
-                           idf=idf)
+                           idf=idf,filename=filename)
 
 @main.route('/upload', methods=['GET', 'POST'])
+@login_required
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
@@ -60,6 +66,7 @@ def upload_file():
     return render_template('upload.html')
 
 @main.route('/uploads/<filename>')
+@login_required
 def unzip_file(filename):
     unzip(os.path.join(app.config['UPLOAD_FOLDER'],filename),app.config['UPLOAD_FOLDER'])
     #return ''
@@ -67,6 +74,7 @@ def unzip_file(filename):
                                     filename=filename))
 
 @main.route('/fetch')
+@login_required
 def fetch_zip():
     ff = Fetch()
     ff.fetch()
@@ -74,6 +82,7 @@ def fetch_zip():
     return redirect('/')
 
 @main.route('/csv/<filename>')
+@login_required
 @cache.cached(timeout=cache_timeout)
 def serve_csv(filename):
     daily = Daily()
@@ -86,6 +95,7 @@ def serve_csv(filename):
                      mimetype='text/csv')
 
 @main.route('/mail/<filename>')
+@login_required
 def serve_mail(filename):
     daily = Daily()
     mdf = daily.month_by_day(filename)
@@ -104,6 +114,7 @@ def serve_mail(filename):
 
 
 @main.route('/itemmail/<filename>')
+@login_required
 def item_mail(filename):
     daily = Daily()
     idf = daily.month_by_itemdescription(filename)
@@ -121,6 +132,7 @@ def item_mail(filename):
         return redirect('/')
 
 @main.route('/itemcsv/<filename>')
+@login_required
 @cache.cached(timeout=cache_timeout)
 def serve_itemcsv(filename):
     mdf = month_by_owner_item(filename)
@@ -131,7 +143,7 @@ def serve_itemcsv(filename):
                      attachment_filename="test.csv",
                      mimetype='text/csv')
 
-@main.route('/favicon.ico')
+@main.route('/favicon.png')
 def favicon():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
-                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    return send_from_directory(os.path.join(app.root_path, 'static/img'),
+                               'favicon.png', mimetype='image/png')

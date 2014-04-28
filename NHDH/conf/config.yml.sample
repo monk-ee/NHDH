@@ -23,3 +23,6 @@ cache:
 scheduler:
  hourly_interval: '4'
 logfile: 'nhdh.log'
+db:
+ database_uri: 'sqlite:///nhdh.sqlite'
+ database_connect_options     :

@@ -3,6 +3,9 @@ NHDH/csv/*.csv
 NHDH/csv/*.zip
 NHDH/csv/*.7z
 
+#no dont checkin the demo db
+*.sqlite
+
 #no config
 NHDH/conf/config.yml
 
