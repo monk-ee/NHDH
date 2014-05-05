@@ -30,7 +30,12 @@
                         <tr>
                             <td>{{ mdf.index[loop.index0] }}</td>
                             <td width="80px"> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][0]) }} </td>
-                            <td> {{ '{:20,.2f}'.format(mdf.values[loop.index0][1]*100) }} %</td>
+
+                            <td>
+                                {% if mdf.values[loop.index0][1] is number %}
+                                {{ '{:20,.2f}'.format(mdf.values[loop.index0][1]*100) }} %
+                                {% endif %}
+                            </td>
                             <td> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][2]) }} </td>
                         </tr>
                   {% else %}
