@@ -47,6 +47,7 @@ def load_user(id):
 from flask import Flask,session, request, flash, url_for, redirect, render_template, abort ,g
 from flask.ext.login import login_user , logout_user , current_user , login_required
 
+
 @app.route('/login',methods=['GET','POST'])
 def login():
     if request.method == 'GET':
@@ -58,7 +59,7 @@ def login():
         remember_me = True
     registered_user = User.query.filter_by(email=email,password=password).first()
     if registered_user is None:
-        flash('Username or Password is invalid' , 'error')
+        flash('Email or Password is invalid' , 'error')
         return redirect(url_for('login'))
     login_user(registered_user, remember = remember_me)
     flash('Logged in successfully')

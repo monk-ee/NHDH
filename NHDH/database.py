@@ -1,6 +1,5 @@
-from datetime import datetime
 from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, sessionmaker, backref, relation
+from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 from NHDH import app
@@ -11,9 +10,10 @@ engine = create_engine(app.config['CONFIG']['db']['database_uri'],
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                         bind=engine))
-def init_db():
-    from NHDH.models.user import User
-    Model.metadata.create_all(bind=engine)
+Base = declarative_base()
+Base.query = db_session.query_property()
 
-Model = declarative_base(name='Model')
-Model.query = db_session.query_property()
+def init_db():
+    from models import User
+    Base.metadata.create_all(bind=engine)
+
