@@ -1,43 +1,59 @@
 {% extends "layout.html" %}
 {% block body %}
-  <table class=entries>
-    <thead>
-    <tr>
-        <td>Day</td>
-        <td>Daily Cost</td>
-        <td>Daily % Change</td>
-        <td>Running Total</td>
-    </tr>
-    </thead>
-  {% for key in mdf.values %}
-      {% if loop.index == 1 %}
-        <tr>
-            <td colspan="4"> NB that reserved instance billing is added to the bill on the first of the month.</td>
-        </tr>
-        <tr>
-            <td>{{ mdf.index[loop.index0] }}</td>
-            <td width="80px"> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][0]) }} </td>
-            <td></td>
-            <td> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][2]) }} </td>
-        </tr>
-      {% else %}
-        <tr>
-            <td>{{ mdf.index[loop.index0] }}</td>
-            <td width="80px"> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][0]) }} </td>
-            <td> {{ '{:20,.2f}'.format(mdf.values[loop.index0][1]*100) }} %</td>
-            <td> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][2]) }} </td>
-        </tr>
-      {% endif %}
-  {% else %}
-      <tr>
-    <td><em>Unbelievable.  No days here so far. Something must be very wrong with your spreadsheet.</em></td>
-      </tr>
-  {% endfor %}
-        <tr>
-            <td colspan="4"> PS today's result may not contain all billing items yet.</td>
-        </tr>
-  </table>
-  <div class=metanav>
-    <a href="/dailycsv/{{ filename }}">Download a daily summary CSV</a>
-  </div>
+    <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Daily Summary Report</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+  <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Daily Summary Report for {{ filename }}
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="report">
+                                    <thead>
+                                        <tr>
+                                            <th>Day</th>
+                                            <th>Daily Cost</th>
+                                            <th>Daily % Change</th>
+                                            <th>Running Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                  {% for key in mdf.values %}
+                        <tr>
+                            <td>{{ mdf.index[loop.index0] }}</td>
+                            <td width="80px"> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][0]) }} </td>
+                            <td> {{ '{:20,.2f}'.format(mdf.values[loop.index0][1]*100) }} %</td>
+                            <td> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][2]) }} </td>
+                        </tr>
+                  {% else %}
+                      <tr>
+                    <td><em>Unbelievable.  No days here so far. Something must be very wrong with your spreadsheet.</em></td>
+                      </tr>
+                  {% endfor %}
+                                      </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                            <div class="well">
+                                <h4>Additional Actions and Information</h4>
+                                <p><b>Please note:</b> that reserved instance billing is added to the bill on the first of the month.</p>
+                                <p>All items are summarized to the date of the latest file download. Don't forget to check you have the latest CSV file from Amazon.</p>
+                                <a class="btn btn-default btn-lg btn-block" target="_blank" href="/dailycsv/{{ filename }}">Download a summary CSV</a>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
 {% endblock %}

@@ -25,12 +25,12 @@ def list_reports():
 
 @main.route('/dailyreport/<filename>')
 @login_required
-@cache.cached(timeout=cache_timeout)
+#@cache.cached(timeout=cache_timeout)
 def daily(filename):
     daily = Daily()
     mdf = daily.month_by_day(filename)
     return render_template('dailyreport.html',
-                           mdf=mdf)
+                           mdf=mdf,filename=filename)
 
 @main.route('/dailygraph/<filename>')
 @login_required
