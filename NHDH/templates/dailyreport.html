@@ -32,7 +32,7 @@
                             <td width="80px"> ${{ '{:20,.2f}'.format(mdf.values[loop.index0][0]) }} </td>
 
                             <td>
-                                {% if mdf.values[loop.index0][1] is number %}
+                                {% if not isnan(mdf.values[loop.index0][1]) %}
                                 {{ '{:20,.2f}'.format(mdf.values[loop.index0][1]*100) }} %
                                 {% endif %}
                             </td>

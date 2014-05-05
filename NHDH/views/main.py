@@ -9,6 +9,8 @@ from flask import Blueprint, request, redirect, url_for,  \
      render_template, flash, send_from_directory, send_file
 from flask.ext.login import login_user , logout_user , current_user , login_required
 
+from math import isnan
+
 main  = Blueprint('main', __name__)
 cache_timeout = int(app.config['CONFIG']['cache']['timeout'])
 
@@ -30,7 +32,7 @@ def daily(filename):
     daily = Daily()
     mdf = daily.month_by_day(filename)
     return render_template('dailyreport.html',
-                           mdf=mdf,filename=filename)
+                           mdf=mdf,filename=filename,isnan=isnan)
 
 @main.route('/dailygraph/<filename>')
 @login_required
