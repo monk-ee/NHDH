@@ -93,6 +93,16 @@
     <script src="js/demo/dashboard-demo.js"></script>
     -->
 
+    <!-- Page-Level Plugin Scripts - Tables -->
+    <script src="{{ url_for('static', filename='js/plugins/dataTables/jquery.dataTables.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugins/dataTables/dataTables.bootstrap.js') }}"></script>
+
+    <script type="application/javascript">
+        $(document).ready(function() {
+            $('#report').dataTable();
+        } );
+    </script>
+
 </body>
 
 </html>
