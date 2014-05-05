@@ -74,7 +74,7 @@ class Daily():
         cost_types = ['Cost', 'UnBlendedCost']
         for cost in cost_types:
             jb = self.build_jb(gb, cost)
-            if jb is None:
+            if jb is not None:
                 break
         return jb
 
