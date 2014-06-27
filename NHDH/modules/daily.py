@@ -67,14 +67,14 @@ class Daily():
     def month_by_day(self,filename):
         jb = False
         file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0)
+        df = pd.read_csv(file, index_col='UsageStartDate', parse_dates=True, header=0,low_memory=False)
         df = df[np.isfinite(df['SubscriptionId'])]
         gb = df.groupby([lambda x: x.day]).sum()
 
         cost_types = ['Cost', 'UnBlendedCost']
         for cost in cost_types:
             jb = self.build_jb(gb, cost)
-            if jb is not None:
+            if jb is not False:
                 break
         return jb
 
@@ -94,7 +94,7 @@ class Daily():
         try:
             #this is for the reports that have blended and unblended costs
             file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            df = pd.read_csv(file, index_col='UsageStartDate', dtype={'ItemDescription': str}, parse_dates=True, header=0)
+            df = pd.read_csv(file, index_col='UsageStartDate', dtype={'ItemDescription': str}, parse_dates=True, header=0,low_memory=False)
             df = df[np.isfinite(df['SubscriptionId'])]
             gb = df.groupby(['ItemDescription']).sum().sort('UnBlendedCost', ascending=False)
             jb = gb[['UnBlendedCost']]
@@ -102,7 +102,7 @@ class Daily():
         except:
             #a BIG assumption here but if we don't have unblended cost we must have Cost
             file = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            df = pd.read_csv(file, index_col='UsageStartDate', dtype={'ItemDescription': str}, parse_dates=True, header=0)
+            df = pd.read_csv(file, index_col='UsageStartDate', dtype={'ItemDescription': str}, parse_dates=True, header=0,low_memory=False)
             df = df[np.isfinite(df['SubscriptionId'])]
             gb = df.groupby(['ItemDescription']).sum().sort('Cost', ascending=False)
             jb = gb[['Cost']]

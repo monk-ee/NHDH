@@ -45,7 +45,7 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 @login_manager.user_loader
 def load_user(id):
-    return User.query.get(int(id))
+    return User.User.query.get(int(id))
 
 from flask import Flask,session, request, flash, url_for, redirect, render_template, abort ,g
 from flask.ext.login import login_user , logout_user , current_user , login_required
@@ -60,7 +60,7 @@ def login():
     remember_me = False
     if 'remember_me' in request.form:
         remember_me = True
-    registered_user = User.query.filter_by(email=email,password=password).first()
+    registered_user = User.User.query.filter_by(email=email,password=password).first()
     if registered_user is None:
         flash('Email or Password is invalid' , 'error')
         return redirect(url_for('login'))
