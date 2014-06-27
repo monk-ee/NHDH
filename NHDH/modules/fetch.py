@@ -29,7 +29,7 @@ class Fetch():
 
     def fetch(self,scheduler=False):
         # get a bucket connection
-        bucketConn = S3Connection(app.config['CONFIG']['s3']['aws_access_key'], app.config['CONFIG']['s3']['aws_secret_key'])
+        bucketConn = S3Connection()
         #file name
         billingHandle = bucketConn.get_bucket(app.config['CONFIG']['s3']['billing_bucket'])
         #key object fudging

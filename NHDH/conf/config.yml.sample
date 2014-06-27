@@ -2,8 +2,6 @@ s3:
  account_number: ''
  billing_bucket: ''
  name              : ''
- aws_access_key    : ''
- aws_secret_key    : ''
 smtp:
  name             : ''
  user             : ''
