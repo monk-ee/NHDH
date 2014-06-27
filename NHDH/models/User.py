@@ -1,17 +1,17 @@
-from NHDH.database import Model
-from sqlalchemy import Column, Integer, String, DateTime, event
+from NHDH import db
 from datetime import datetime
+
 
 roles = {1: 'admin', 2:'user'}
 
 
-class User(Model):
+class User(db.Model):
     __tablename__ = 'users'
-    id = Column('id', Integer, primary_key=True)
-    email = Column('email',String(200), unique=True, index=True)
-    password = Column(String(64))
-    role = Column(Integer)
-    registered_on = Column('registered_on', DateTime)
+    id = db.Column('id', db.Integer, primary_key=True)
+    email = db.Column('email',db.String(200), unique=True, index=True)
+    password = db.Column(db.String(64))
+    role = db.Column(db.Integer)
+    registered_on = db.Column('registered_on', db.DateTime)
 
     def __init__(self, password, email):
         self.email = email
@@ -42,9 +42,3 @@ class User(Model):
 
     def __repr__(self):
         return '<User %r>' % (self.email)
-
-def load_monitor(target, context):
-    if target.role:
-        target.role_name = roles.get(target.role, None)
-
-event.listen(User, 'load', load_monitor)

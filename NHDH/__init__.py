@@ -17,12 +17,15 @@ from flask import Flask, render_template,request, redirect, url_for
 
 from NHDH.modules.cache import cache as cache
 
+from flask.ext.sqlalchemy import SQLAlchemy
 
 #immutable configuration items
 locale.setlocale(locale.LC_ALL, '')
 
 #app configuration items
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.abspath('NHDH/nhdh.sqlite')
+db = SQLAlchemy(app)
 app.secret_key = 'sdakjkdsjksjkjaskjdkaskjdkjkjdkjkjkjdksjkajlkjaskljdkljklsdj'
 app.config['UPLOAD_FOLDER'] = os.path.abspath('NHDH/csv')
 app.config['CONFIG_FILE'] = os.path.abspath('NHDH/conf/config.yml')
