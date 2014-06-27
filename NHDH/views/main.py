@@ -1,5 +1,6 @@
-from NHDH.modules.daily import *
-from NHDH.modules.fetch import *
+from NHDH.modules.daily import Daily
+from NHDH.modules.fetch import Fetch
+from NHDH.modules.trails import Trails
 from NHDH.modules.py_email import *
 from NHDH.modules.cache import cache
 from datetime import datetime
@@ -74,6 +75,13 @@ def unzip_file(filename):
     #return ''
     return redirect(url_for('list_reports',
                                     filename=filename))
+
+@main.route('/trail')
+@login_required
+def show_trails():
+    trails = Trails()
+    trails.show_trails()
+
 
 @main.route('/fetch')
 @login_required
