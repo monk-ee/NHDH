@@ -9,3 +9,6 @@ def init_db():
     db.session.add(admin)
     db.session.add(guest)
     db.session.commit()
+
+if __name__ == "__main__":
+    init_db()
