@@ -11,6 +11,7 @@ from flask import Blueprint, request, redirect, url_for,  \
 from flask.ext.login import login_user , logout_user , current_user , login_required
 
 from math import isnan
+import os
 
 main  = Blueprint('main', __name__)
 cache_timeout = int(app.config['CONFIG']['cache']['timeout'])
