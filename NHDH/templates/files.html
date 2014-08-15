@@ -18,8 +18,11 @@
                                     <thead>
                                         <tr>
                                             <th>Filename</th>
-                                            <th>Daily</th>
-                                            <th>Item</th>
+                                            <th>Daily Report</th>
+                                            <th>Email Report</th>
+                                            <th>Daily Graph</th>
+                                            <th>Item Report</th>
+                                            <th>Item Graph</th>
                                             <th>Download</th>
                                         </tr>
                                     </thead>
@@ -28,7 +31,10 @@
                   <tr>
                             <td>{{ file }}</td>
                             <td> <a href="/dailyreport/{{ file }}"><button type="button" class="btn btn-info btn-circle btn-lg"><i class="fa fa-check"></i></button></a></td>
+                            <td> <a href="/mail/{{ file }}"><button type="button" class="btn btn-info btn-circle btn-lg"><i class="fa fa-check"></i></button></a></td>
+                            <td> <a href="/dailygraph/{{ file }}"><button type="button" class="btn btn-info btn-circle btn-lg"><i class="fa fa-check"></i></button></a></td>
                             <td><a href="/itemreport/{{ file }}"><button type="button" class="btn btn-info btn-circle btn-lg"><i class="fa fa-check"></i></button></a></td>
+                            <td><a href="/itemgraph/{{ file }}"><button type="button" class="btn btn-info btn-circle btn-lg"><i class="fa fa-check"></i></button></a></td>
                             <td><a href="/csv/{{ file }}"><button type="button" class="btn btn-info btn-circle btn-lg"><i class="fa fa-save"></i></button></a></td>
                   </tr>
               {% else %}
